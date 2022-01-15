@@ -12,7 +12,7 @@ public class ProjectAwsCdkApp {
         clusterStack.addDependency(vpcStack);
 
         RdsStack rdsStack = new RdsStack(app, "Rds", vpcStack.getVpc());
-        rdsStack.addDependency(clusterStack);
+        rdsStack.addDependency(vpcStack);
 
         Service01Stack service01Stack = new Service01Stack(app, "Service01", clusterStack.getCluster());
         service01Stack.addDependency(clusterStack);
